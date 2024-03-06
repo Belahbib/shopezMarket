@@ -14,6 +14,7 @@ import UpdateProduct from "./updatePruduct";
 import MyCart from "./mycart";
 import VerfyEmail from "./verfyEmail";
 import { FilterProvider } from "./filterContext";
+import React from "react";
 
 interface TokenProps {
   children: React.ReactNode;

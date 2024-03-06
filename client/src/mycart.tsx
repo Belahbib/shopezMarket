@@ -59,9 +59,9 @@ const MyCart = () => {
       <div className="fixed top-16 hidden md:block lg:block">
         <Sidebar />
       </div>
-
-      <div className=" m-auto lg:ml-72 md:ml-72 ">
-        <main className="   w-full    fixed top-0 right-0 z-10  transition-all duration-150 ease-in">
+      <div className="lg:w-96 md:w-72 w-0" ></div>
+      <div className=" m-auto">
+        <main className="   w-full  fixed top-0 right-0 z-10  transition-all duration-150 ease-in">
           <header className=" bg-transparent   py-4 px-4">
             <div className=" flex justify-between  ">
               <div className="sidebar-header flex items-center justify-center ">
@@ -137,7 +137,7 @@ const MyCart = () => {
             {/* <!-- PRODUCTS CARDS --> */}
             <section
               id="Projects"
-              className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3  md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-16 mb-5"
+              className="w-full m-auto grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4  md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-6 mt-16 mb-5"
             >
               {products
                 .filter((val) => {

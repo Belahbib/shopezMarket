@@ -1,8 +1,10 @@
 import axios from "axios";
+import { useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const Sidebar = () => {
   const location = useLocation();
+  const [open, setOpen] = useState(true);
 
   const navigate = useNavigate();
 
@@ -27,9 +29,14 @@ const Sidebar = () => {
 
   return (
     <>
+    <div className="absolute top-4 left-4"
+      onClick={() =>setOpen(true)}>
+      <img src="bars.png" alt="menu"  className=""/>
+
+      </div>
       <div className="flex flex-row min-h-screen bg-gray-100 text-gray-800">
-        <aside className="sidebar w-64 md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-slate-600">
-          <div className="sidebar-content px-4 py-6">
+        <aside className={ `sidebar  md:shadow  ${open ? "transform lg:w-72 transition-transform  bg-slate-600 duration-150 ease-in  hidden lg:flex md:flex" : "flex"}     `}>
+          <div className="sidebar-content w-full  px-4 py-6">
             <ul className="flex flex-col w-full">
               <li className="my-px">
                 <Link
@@ -67,7 +74,7 @@ const Sidebar = () => {
                   to="/Mycart"
                   className={`flex flex-row items-center w-full h-10 px-3 rounded-lg text-gray-300 ${
                     location.pathname === "/Mycart"
-                      ? "text-gray-700  bg-slate-300"
+                      ? "text-gray-700 w-full  bg-slate-300"
                       : ""
                   } `}
                 >

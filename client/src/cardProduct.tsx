@@ -42,29 +42,27 @@ const Card: React.FC<CardProps> = ({
     }
   };
   return (
-    <div>
-      <div className="w-72 bg-white shadow-md rounded-xl duration-500 hover:scale-105 hover:shadow-xl">
+    <div className="w-full">
+      <div className=" w-full max-w-sm mx-auto bg-white shadow-md rounded-xl hover:scale-105 hover:shadow-xl transition duration-500">
         <Link to={`/product/${productId}`}>
           <img
             src={imageUrl[0]}
             alt="Product"
-            className="h-80 w-72 rounded-xl object-cover rounded-t-xl"
+            className=" h-80 w-96 object-cover rounded-xl"
           />
         </Link>
-        <div className="px-4 py-3 w-72">
+        <div className="px-4 py-3">
           <span className="text-gray-400 mr-3 uppercase text-xs">
             {category}
           </span>
-          <p className="text-lg font-bold text-black truncate block capitalize">
+          <p className="text-lg font-bold text-black truncate capitalize">
             {Name}
           </p>
-
-          <div className="flex items-center">
-            <p className="text-lg font-semibold text-black cursor-auto my-3">
+          <div className="flex justify-between items-center mt-3">
+            <p className="text-lg font-semibold text-black">
               {price} <span className="text-slate-500">$</span>
             </p>
-            <div className="flex items-center justify-between"></div>
-            <button onClick={toggleLike} className="ml-auto">
+            <button onClick={toggleLike}>
               {!Incart ? (
                 <img src="cart-add.png" alt="" className="w-6 h-6" />
               ) : (

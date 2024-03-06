@@ -52,13 +52,12 @@ const Home = () => {
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      if (!filter.category) return products;
       const matchesCategory = filter.category ? product.product_Category === filter.category : true;
-      const matchesSearch = search === "" ? true : product.product_Name.toLowerCase().includes(search.toLowerCase());
+      const matchesSearch = search ? product.product_Name.toLowerCase().includes(search.toLowerCase()) : true;
       return matchesCategory && matchesSearch;
     });
   }, [products, search, filter.category]);
-
+  
   const resetFilter = async () => {
     setFilter({ category: '' }); 
   };
@@ -73,9 +72,10 @@ const Home = () => {
       <div className="fixed top-16 hidden md:block lg:block">
         <HomeSidebar onResetFilter={resetFilter}/>
       </div>
+      <div className="lg:w-96 md:w-72 w-0" ></div>
 
-      <div className=" m-auto lg:ml-72 md:ml-72 ">
-        <main className="   w-full    fixed top-0 right-0 z-10  transition-all duration-150 ease-in">
+      <div className=" m-auto ">
+        <main className="   w-full  fixed top-0 right-0 z-10  transition-all duration-150 ease-in">
           <header className=" bg-transparent   py-4 px-4">
             <div className=" flex justify-between  ">
               <div className="sidebar-header flex items-center justify-center ">
@@ -166,10 +166,10 @@ const Home = () => {
             {/* <!-- PRODUCTS CARDS --> */}
             <section
               id="Projects"
-              className="w-fit mx-auto grid grid-cols-1 lg:grid-cols-3  md:grid-cols-2 justify-items-center justify-center gap-y-20 gap-x-14 mt-16 mb-5"
+              className="w-full m-auto grid grid-cols-1 lg:grid-cols-3 2xl:grid-cols-4  md:grid-cols-2 justify-items-center justify-center gap-y-20 lg:gap-x-10  gap-x-6 mt-16 mb-5"
             >
               {filteredProducts.map((product) => (
-                <div key={product._id} className="post-container mb-8">
+                <div key={product._id} className="post-container mb-8 w-full">
                   <Card
                     Name={product.product_Name}
                     imageUrl={[

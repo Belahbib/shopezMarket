@@ -2,7 +2,7 @@
 import React, { createContext, useState, ReactNode } from 'react';
 
 interface FilterContextType {
-  filter: { category: string };
+  filter: { category: string  };
   setFilter: React.Dispatch<React.SetStateAction<{ category: string }>>;
 }
 

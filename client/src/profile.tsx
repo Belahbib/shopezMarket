@@ -14,10 +14,10 @@ const Profile = () => {
 
   return (
     <div className="flex justify-between">
-      <div className="fixed  hidden md:block lg:block">
+      <div className="  md:block lg:block">
         <Sidebar />
       </div>
-      <div className="bg-white m-auto w-full  ml-96 flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row text-[#161931]">
+      <div className="bg-white m-auto w-full  flex flex-col gap-5 px-3 md:px-16 lg:px-28 md:flex-row text-[#161931]">
         <main className="w-full min-h-screen py-1 md:w-2/3 lg:w-3/4">
           <div className="p-2 md:p-4">
             <div className="flex flex-wrap justify-center gap-x-10 gap-y-4">

@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import VisibilityIcon from "@mui/icons-material/Visibility";
 import VisibilityOffIcon from "@mui/icons-material/VisibilityOff";
+
 import axios from "axios";
 
 const Register = () => {
@@ -22,10 +23,9 @@ const Register = () => {
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
-  // const navigate = useNavigate();
+  const Navigate = useNavigate();
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const [Message, setMessage] = useState<string | null>(null);
-
 
   const handleSumbit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -37,7 +37,7 @@ const Register = () => {
           email: email,
           password: password,
           confirmPassword: confirmPassword,
-          phone : phone,
+          phone: phone,
         },
         {
           headers: {
@@ -47,6 +47,9 @@ const Register = () => {
       );
 
       if (res.status === 200) {
+        
+        localStorage.setItem("token", res.data.token );
+        Navigate('/home');
         setMessage(res.data.message);
       }
     } catch (error: any) {
@@ -62,6 +65,15 @@ const Register = () => {
       }
     }
   };
+
+  
+    
+    const handleSignIn = async () => {
+      
+      window.location.href = "http://localhost:3000/api/auth/google";
+    };
+    
+  
 
   const togglePass = () => {
     setVisible(!visible);
@@ -115,7 +127,7 @@ const Register = () => {
                 </div>
                 <div className="mt-4">
                   <label className="block text-gray-700 text-sm font-bold mb-2">
-                   Phone
+                    Phone
                   </label>
                   <input
                     className="bg-gray-200 text-gray-700 focus:outline-none focus:shadow-outline border border-gray-300 rounded py-2 px-4 block w-full appearance-none"
@@ -179,9 +191,9 @@ const Register = () => {
                 <p className="text-xs text-gray-500 uppercase">OR</p>
                 <span className="border-b w-1/5 md:w-1/4"></span>
               </div>
-              <a
-                href="#"
-                className="flex items-center justify-center border-b border-[#002D74] mt-4 text-white rounded-lg shadow-md hover:bg-gray-100"
+              <button
+                onClick={handleSignIn}
+                className="flex items-center w-full justify-center border-b border-[#002D74] mt-4 text-white rounded-lg shadow-md hover:bg-gray-100"
               >
                 <div className="px-4 py-3">
                   <svg className="h-6 w-6" viewBox="0 0 40 40">
@@ -206,7 +218,7 @@ const Register = () => {
                 <h1 className="px-4 py-3 w-5/6 text-center text-gray-600 font-bold">
                   Sign up with Google
                 </h1>
-              </a>
+              </button>
               <div className="mt-3 text-xs flex justify-between items-center text-[#002D74]">
                 <p>Already have an account? </p>
                 <Link

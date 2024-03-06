@@ -5,6 +5,9 @@ const cookieParser = require("cookie-parser");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const productRoutes = require("./routes/productRoutes");
+const passport = require('passport');
+const session = require('express-session');
+const GoogleStrategy = require("./middlewares/passport");
 require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
@@ -13,10 +16,20 @@ const corsOptions = {
   methods: ["POST", "GET", "DELETE", "PUT"],
   credentials: true,
 };
+
+app.use(session({
+  secret: 'yourSecretKey', // Replace 'yourSecretKey' with a real secret key
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: 'auto', maxAge: 3600000 } // secure: 'auto' will use true if site uses HTTPS
+}));
+
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
 app.use("/public", express.static("public"));
+app.use(passport.initialize());
+app.use(passport.session());
 
 
 app.use("/api/", userRoutes);

@@ -3,7 +3,7 @@ const Token = require("../models/token");
 const bcryptjs = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const sendMail = require("../utils/senMail");
-const passport = require("passport");
+// const passport = require("passport");
 require("dotenv").config();
 
 const registerUser = async (req, res) => {
@@ -273,34 +273,33 @@ const loginUser = async (req, res) => {
 //   passport.authenticate("google", { scope: ["profile", "email"] });
 // };
 
-const GoogleCallback = (req, res) => {
-  passport.authenticate("google", { failureRedirect: "/login" }),
-    (req, res) => {
-      // Successful authentication, redirect home.
-      const userPayload = {
-        id: req.user._id,
-        email: req.user.email,
-        username: req.user.username,
-      };
-      const token = jwt.sign(userPayload, process.env.JWT_SECRET, {
-        expiresIn: "1h",
-      });
+// const GoogleCallback = (req, res) => {
+//   passport.authenticate("google", { failureRedirect: "/login" }),
+//     (req, res) => {
+//       // Successful authentication, redirect home.
+//       const userPayload = {
+//         id: req.user._id,
+//         email: req.user.email,
+//         username: req.user.username,
+//       };
+//       const token = jwt.sign(userPayload, process.env.JWT_SECRET, {
+//         expiresIn: "1h",
+//       });
 
-      // Set cookie with JWT token
-      res.cookie("token", token, {
-        httpOnly: true,
-        secure: true,
-        sameSite: "None",
-        maxAge: 3600000,
-      }); // Adjust cookie settings as needed
+//       // Set cookie with JWT token
+//       res.cookie("token", token, {
+//         httpOnly: true,
+//         secure: true,
+//         sameSite: "None",
+//         maxAge: 3600000,
+//       }); // Adjust cookie settings as needed
 
-      res.redirect("http://localhost:5173/home");
-    };
-};
+//       res.redirect("http://localhost:5173/home");
+//     };
+// };
 
 const logoutUser = (req, res) => {
   res.clearCookie("token");
-
   res.status(200).json({ success: true, message: "Logout successful" });
 };
 

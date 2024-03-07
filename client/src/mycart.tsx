@@ -20,13 +20,15 @@ const MyCart = () => {
   const [products, setProducts] = useState<Product[]>([]);
   const { currentUserInfo, TokenInfo, fetchCurrentUser, fetchTokenInfo } =
     useContext(UserContext);
-    const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/mycart/${TokenInfo.userId}`,
+          `${baseUrl}/api/mycart/${TokenInfo.userId}`,
           {
             withCredentials: true,
           }
@@ -59,7 +61,7 @@ const MyCart = () => {
       <div className="fixed top-16 hidden md:block lg:block">
         <Sidebar />
       </div>
-      <div className="lg:w-96 md:w-72 w-0" ></div>
+      <div className="lg:w-96 md:w-72 w-0"></div>
       <div className=" m-auto mr-6">
         <main className="   w-full  fixed top-0 right-0 z-10  transition-all duration-150 ease-in">
           <header className=" bg-transparent   py-4 px-4">
@@ -103,17 +105,16 @@ const MyCart = () => {
                     name="search"
                     className="text-sm sm:text-base placeholder-gray-500 pl-10 pr-4 rounded-lg border border-gray-300 w-full h-10 focus:outline-none focus:border-indigo-400"
                     placeholder="Search..."
-                    onChange={(e)=> setSearch(e.target.value)}
+                    onChange={(e) => setSearch(e.target.value)}
                   />
                 </div>
-                
               </div>
               <Link to="/profile">
                 <div className="flex ">
                   <div className="flex flex-row items-center">
                     <Avatar
                       alt={currentUserInfo.username}
-                      src={`http://localhost:3000/public/${currentUserInfo.avatar}`}
+                      src={`${baseUrl}/public/${currentUserInfo.avatar}`}
                       sx={{
                         width: 40,
                         height: 40,
@@ -156,7 +157,7 @@ const MyCart = () => {
                     <Card
                       Name={product.product_Name}
                       imageUrl={[
-                        `http://localhost:3000/public/${product.product_Images[0]}`,
+                        `${baseUrl}/public/${product.product_Images[0]}`,
                       ]}
                       price={product.product_Price}
                       productId={product._id}

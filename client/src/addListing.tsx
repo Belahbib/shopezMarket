@@ -13,6 +13,7 @@ const AddListing = () => {
   const fileInputRef = useRef<HTMLInputElement>(null);
   //   const { setNotification } = useNotification();
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -30,7 +31,7 @@ const AddListing = () => {
     }
 
     try {
-      const res = await axios.post("https://shopezmarket-b5x6.onrender.com/api/List", formData, {
+      const res = await axios.post(`${baseUrl}/api/List`, formData, {
         withCredentials: true,
         headers: {
           "Content-Type": "multipart/form-data ",

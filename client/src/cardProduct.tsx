@@ -24,7 +24,7 @@ const Card: React.FC<CardProps> = ({
   const toggleLike = async () => {
     try {
       const res = await axios.post(
-        `http://localhost:3000/api/product/${productId}/cart`,
+        `https://shopezmarket-b5x6.onrender.com/api/product/${productId}/cart`,
         {},
         { withCredentials: true }
       );

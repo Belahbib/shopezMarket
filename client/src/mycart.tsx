@@ -60,7 +60,7 @@ const MyCart = () => {
         <Sidebar />
       </div>
       <div className="lg:w-96 md:w-72 w-0" ></div>
-      <div className=" m-auto">
+      <div className=" m-auto mr-6">
         <main className="   w-full  fixed top-0 right-0 z-10  transition-all duration-150 ease-in">
           <header className=" bg-transparent   py-4 px-4">
             <div className=" flex justify-between  ">

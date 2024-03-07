@@ -57,7 +57,7 @@ const HomeSidebar = ({ onResetFilter }: Prop) => {
   return (
     <>
       <div className="flex flex-row min-h-screen bg-gray-100 text-gray-800">
-        <aside  className="sidebar lg:w-72  md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-slate-600  h-screen   overflow-y-auto">
+        <aside  className="sidebar lg:w-64  md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-slate-600  h-screen   overflow-y-auto">
           <div className="sidebar-content mb-14 overflow-y-auto overflow-scroll  px-4 py-6">
             <ul className="flex flex-col  w-full">
               <li className="my-px">

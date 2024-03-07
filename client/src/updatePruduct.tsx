@@ -29,12 +29,13 @@ const UpdateProduct = () => {
   const [mainImage, setMainImage] = useState<string>("");
   const AssetsUrl = import.meta.env.VITE_ASSETS_URL;
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `https://shopezmarket-b5x6.onrender.com/api/product/${productId}`,
+          `${baseUrl}/api/product/${productId}`,
           {
             withCredentials: true,
           }
@@ -61,7 +62,7 @@ const UpdateProduct = () => {
   const handleImageDelete = async (imageName: string) => {
     try {
       await axios.delete(
-        `https://shopezmarket-b5x6.onrender.com/api/product/${productId}/image/${imageName}`,
+        `${baseUrl}/api/product/${productId}/image/${imageName}`,
         {
           withCredentials: true,
         }
@@ -83,7 +84,7 @@ const UpdateProduct = () => {
   const handleDelete = async () => {
     try {
       const res = await axios.delete(
-        `https://shopezmarket-b5x6.onrender.com/api/delete/${productId}`,
+        `${baseUrl}/api/delete/${productId}`,
         {
           withCredentials: true,
         }
@@ -116,7 +117,7 @@ const UpdateProduct = () => {
 
     try {
       const res = await axios.put(
-        `https://shopezmarket-b5x6.onrender.com/api/updateProduct/${productId}`,
+        `${baseUrl}/api/updateProduct/${productId}`,
         formData,
         {
           withCredentials: true,
@@ -142,7 +143,7 @@ const UpdateProduct = () => {
                 <div className="relative mb-6 lg:mb-10 lg:h-96">
                   <img
                     className="object-contain w-full lg:h-full"
-                    src={`https://shopezmarket-b5x6.onrender.com/public/${mainImage}`}
+                    src={`${baseUrl}/public/${mainImage}`}
                     alt="Product"
                   />
                 </div>
@@ -156,7 +157,7 @@ const UpdateProduct = () => {
                         >
                           <img
                             className="object-contain w-full lg:h-28"
-                            src={`https://shopezmarket-b5x6.onrender.com/public/${image}`}
+                            src={`${baseUrl}/public/${image}`}
                             alt="Product thumbnail"
                           />
                         </button>

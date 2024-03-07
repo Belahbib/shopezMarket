@@ -7,11 +7,13 @@ const Sidebar = () => {
   const [open, setOpen] = useState(true);
 
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
+  
   const handleOpen = () => {
-    if (open){
+    if (open) {
       setOpen(false);
-    }else {
+    } else {
       setOpen(true);
     }
   };
@@ -20,7 +22,7 @@ const Sidebar = () => {
     e.preventDefault();
 
     try {
-      const res = await axios.get("https://shopezmarket-b5x6.onrender.com/api/logout", {
+      const res = await axios.get(`${baseUrl}/api/logout`, {
         withCredentials: true,
       });
 

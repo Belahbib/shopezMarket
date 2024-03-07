@@ -6,6 +6,8 @@ import { Link } from "react-router-dom";
 const Profile = () => {
   const { currentUserInfo, fetchTokenInfo, fetchCurrentUser } =
     useContext(UserContext);
+    
+    const baseUrl = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     fetchCurrentUser();
@@ -28,7 +30,7 @@ const Profile = () => {
                     <div className="mb-16">
                       <img
                         className="object-cover m-auto w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
-                        src={`https://shopezmarket-b5x6.onrender.com/public/${currentUserInfo.avatar}`}
+                        src={`${baseUrl}/public/${currentUserInfo.avatar}`}
                         alt="Bordered avatar"
                       />
                       <h2 className="pl-6 text-3xl text-center capitalize mt-4  font-bold sm:text-2xl">

@@ -32,7 +32,7 @@ const Product = () => {
   const navigate = useNavigate();
   const [Open, setOpen] = useState(false);
   const [call, setCall] = useState(false);
-
+  const baseUrl = import.meta.env.VITE_BASE_URL;
  
   useEffect(() => {
     fetchCurrentUser();
@@ -43,7 +43,7 @@ const Product = () => {
     const fetchProduct = async () => {
       try {
         const response = await axios.get(
-          `https://shopezmarket-b5x6.onrender.com/api/product/${productId}`,
+          `${baseUrl}/api/product/${productId}`,
           {
             withCredentials: true,
           }
@@ -87,7 +87,7 @@ const Product = () => {
   const toggleLike = async () => {
     try {
       const res = await axios.post(
-        `https://shopezmarket-b5x6.onrender.com/api/product/${productId}/cart`,
+        `${baseUrl}/api/product/${productId}/cart`,
         {},
         { withCredentials: true }
       );
@@ -109,7 +109,7 @@ const Product = () => {
   const handleDelete = async () => {
     try {
       const res = await axios.delete(
-        `https://shopezmarket-b5x6.onrender.com/api/delete/${productId}`,
+        `${baseUrl}/api/delete/${productId}`,
         {
           withCredentials: true,
         }
@@ -156,7 +156,7 @@ const Product = () => {
                 <div className="relative mb-6 lg:mb-10 lg:h-96">
                   <img
                     className="object-contain w-full lg:h-full"
-                    src={`https://shopezmarket-b5x6.onrender.com/public/${mainImage}`}
+                    src={`${baseUrl}/public/${mainImage}`}
                     alt="Product"
                   />
                 </div>
@@ -169,7 +169,7 @@ const Product = () => {
                       >
                         <img
                           className="object-contain w-full h-28"
-                          src={`https://shopezmarket-b5x6.onrender.com/public/${image}`}
+                          src={`${baseUrl}/public/${image}`}
                           alt="Product thumbnail"
                         />
                       </button>
@@ -303,7 +303,7 @@ const Product = () => {
                   <div className="flex">
                     <Avatar
                       alt={product?.creator.username}
-                      src={`https://shopezmarket-b5x6.onrender.com/public/${product?.creator.avatar}`}
+                      src={`${baseUrl}/public/${product?.creator.avatar}`}
                       sx={{
                         width: 65,
                         height: 65,

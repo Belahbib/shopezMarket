@@ -18,6 +18,7 @@ const Setting = () => {
   const [ConfirmPassword, setConfirmPassword] = useState("");
   const [Message, setMessage] = useState<string | null>(null);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const fileInputRef = useRef<HTMLInputElement>(null);
 
@@ -39,7 +40,7 @@ const Setting = () => {
 
     try {
       const res = await axios.put(
-        `https://shopezmarket-b5x6.onrender.com/api/user/update/${TokenInfo.userId}`,
+        `${baseUrl}/api/user/update/${TokenInfo.userId}`,
         formData,
         { withCredentials: true }
       );
@@ -69,7 +70,7 @@ const Setting = () => {
   
     try {
       const res = await axios.put(
-        `https://shopezmarket-b5x6.onrender.com/api/user/update/password/${TokenInfo.userId}`,
+        `${baseUrl}/api/user/update/password/${TokenInfo.userId}`,
         data, // Send JSON data directly
         {
           withCredentials: true,

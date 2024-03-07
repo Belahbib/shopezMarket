@@ -5,11 +5,15 @@ import { useNavigate, useParams } from "react-router-dom";
 const VerfyEmail = () => {
   const { userId, token } = useParams();
   const navigate = useNavigate();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
+
+
+  
   useEffect(() => {
     const verifyEmail = async () => {
       try {
         const res = await axios.get(
-          `https://shopezmarket-b5x6.onrender.com/api/users/${userId}/verify/${token}`,
+          `${baseUrl}/api/users/${userId}/verify/${token}`,
           {
             withCredentials: true,
           }

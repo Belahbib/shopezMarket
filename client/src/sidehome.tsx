@@ -1,34 +1,31 @@
 import axios from "axios";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import "./assets/sidebar.css"
+import "./assets/sidebar.css";
 import { useFilter } from "./useFilter";
-interface Prop{
-    onResetFilter : () => Promise<void>;
+interface Prop {
+  onResetFilter: () => Promise<void>;
 }
 
 const HomeSidebar = ({ onResetFilter }: Prop) => {
   const navigate = useNavigate();
   const { setFilter } = useFilter();
   const location = useLocation();
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
-  
-
-  const handleCategoryClick = (category : string)  => {
+  const handleCategoryClick = (category: string) => {
     setFilter((prev) => ({ ...prev, category }));
-    
   };
- 
-    // Example button click handler
-    const handleHomeClick = () => {
-      onResetFilter(); 
-      
-    };
+
+  // Example button click handler
+  const handleHomeClick = () => {
+    onResetFilter();
+  };
 
   const handleLogout = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
     try {
-      const res = await axios.get("https://shopezmarket-b5x6.onrender.com/api/logout", {
+      const res = await axios.get(`${baseUrl}/api/logout`, {
         withCredentials: true,
       });
 
@@ -57,14 +54,18 @@ const HomeSidebar = ({ onResetFilter }: Prop) => {
   return (
     <>
       <div className="flex flex-row min-h-screen bg-gray-100 text-gray-800">
-        <aside  className="sidebar lg:w-64  md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-slate-600  h-screen   overflow-y-auto">
+        <aside className="sidebar lg:w-64  md:shadow transform -translate-x-full md:translate-x-0 transition-transform duration-150 ease-in bg-slate-600  h-screen   overflow-y-auto">
           <div className="sidebar-content mb-14 overflow-y-auto overflow-scroll  px-4 py-6">
             <ul className="flex flex-col  w-full">
               <li className="my-px">
                 <Link
                   to="/home"
                   onClick={handleHomeClick}
-                  className={`flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 ${location.pathname === '/home' ? "text-gray-700 bg-slate-300" : ""} `}
+                  className={`flex flex-row items-center h-10 px-3 rounded-lg text-gray-300 ${
+                    location.pathname === "/home"
+                      ? "text-gray-700 bg-slate-300"
+                      : ""
+                  } `}
                 >
                   <span className="flex items-center justify-center text-lg text-gray-400">
                     <svg

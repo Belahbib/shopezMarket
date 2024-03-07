@@ -28,7 +28,7 @@ const Profile = () => {
                     <div className="mb-16">
                       <img
                         className="object-cover m-auto w-40 h-40 p-1 rounded-full ring-2 ring-indigo-300 dark:ring-indigo-500"
-                        src={`http://localhost:3000/public/${currentUserInfo.avatar}`}
+                        src={`https://shopezmarket-b5x6.onrender.com/public/${currentUserInfo.avatar}`}
                         alt="Bordered avatar"
                       />
                       <h2 className="pl-6 text-3xl text-center capitalize mt-4  font-bold sm:text-2xl">
@@ -36,27 +36,7 @@ const Profile = () => {
                       </h2>
                     </div>
 
-                    {/* <div className="flex mt-16 flex-col space-y-5 sm:ml-8">
-                      <button
-                        type="button"
-                        className="py-3.5 px-7 text-base font-medium text-indigo-100 focus:outline-none bg-[#202142] rounded-lg border border-indigo-200 hover:bg-indigo-900 focus:z-10 focus:ring-4 focus:ring-indigo-200 "
-                      >
-                        Change picture
-                      </button>
-                      <button
-                        type="button"
-                        className="py-3.5 px-7 text-base font-medium text-indigo-900 focus:outline-none bg-white rounded-lg border border-indigo-200 hover:bg-indigo-100 hover:text-[#202142] focus:z-10 focus:ring-4 focus:ring-indigo-200 "
-                      >
-                        Delete picture
-                      </button>
-                    </div> */}
-
-                    {/* <h2 className="mb-2 text-md text-xl capitalize font-bold text-gray-700">
-                      Username :
-                    </h2>
-                    <div className="bg-indigo-50 border mt-2  border-indigo-300 text-indigo-900 text-sm rounded-lg focus:ring-indigo-500 focus:border-indigo-500 block w-full p-2.5 ">
-                      <p className="capitalize">{currentUserInfo.username}</p>
-                    </div> */}
+                    
 
                     <h2 className="mb-2 mt-4 text-md text-xl capitalize font-bold text-gray-700">
                       Email :

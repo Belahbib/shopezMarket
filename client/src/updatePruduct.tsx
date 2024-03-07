@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import {  useNavigate, useParams } from "react-router-dom";
 
 interface ProductType {
   product_Name: string;
@@ -304,13 +304,13 @@ const UpdateProduct = () => {
                       >
                         Save Changes
                       </button>
-                      <Link
-                        to={`/product/${productId}`}
+                      <button
                         type="button"
+                        onClick={() => navigate(-1)}
                         className="w mt-6 px-4 py-3 text-center text-indigo-700 bg-indigo-100 border border-transparent hover:border-indigo-500 hover:text-indigo-100 hover:bg-indigo-700 rounded-xl"
                       >
                         Cancel
-                      </Link>
+                      </button>
                     </div>
                   </form>
                 </div>

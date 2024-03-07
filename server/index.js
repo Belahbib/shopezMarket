@@ -30,10 +30,11 @@ app.use(cookieParser());
 app.use("/public", express.static("public"));
 // app.use(passport.initialize());
 // app.use(passport.session());
-
+app.use(express.json());
 
 app.use("/api/", userRoutes);
 app.use("/api/", productRoutes);
+
 
 mongoose
   .connect(

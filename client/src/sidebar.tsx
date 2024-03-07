@@ -8,6 +8,14 @@ const Sidebar = () => {
 
   const navigate = useNavigate();
 
+  const handleOpen = () => {
+    if (open){
+      setOpen(false);
+    }else {
+      setOpen(true);
+    }
+  };
+
   const handleLogout = async (e: React.MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
 
@@ -29,8 +37,8 @@ const Sidebar = () => {
 
   return (
     <>
-      <div className="absolute top-0 left-0" onClick={() => setOpen(true)}>
-        <img src="bars.png" alt="menu" className="" />
+      <div className="absolute top-0 left-0" onClick={handleOpen}>
+        <img src="bars.png" alt="menu" className="w-6 h-6" />
       </div>
       <div className="flex flex-row min-h-screen bg-gray-100 text-gray-800">
         <aside

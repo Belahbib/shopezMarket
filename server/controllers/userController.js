@@ -245,10 +245,10 @@ const loginUser = async (req, res) => {
           });
         }
         res.cookie("token", token, {
-          // httpOnly: true,
-          // secure: true,
-          // sameSite: "None",
-          // maxAge: 80900000,
+          httpOnly: true,
+          secure: true,
+          sameSite: "None",
+          maxAge: 80900000,
         });
         res
           .status(200)

@@ -27,7 +27,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 app.use(express.json());
 app.use(cookieParser());
-app.use("./public", express.static("public"));
+app.use("/public", express.static("public"));
 // app.use(passport.initialize());
 // app.use(passport.session());
 

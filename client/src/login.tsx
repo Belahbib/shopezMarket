@@ -23,7 +23,7 @@ const Login = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/login",
+        "https://shopezmarket-b5x6.onrender.com/api/login",
         {
           email,
           password,

@@ -26,11 +26,12 @@ const Home = () => {
   const [search, setSearch] = useState("");
   const { filter, setFilter } = useFilter();
   const [loading, setLoading] = useState(true);
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const res = await axios.get("https://shopezmarket-b5x6.onrender.com/api/products", {
+        const res = await axios.get(`${baseUrl}/api/products`, {
           withCredentials: true,
         });
 
@@ -147,7 +148,7 @@ const Home = () => {
                     <div className="flex my-auto  flex-row items-center">
                       <Avatar
                         alt={currentUserInfo.username}
-                        src={`http://localhost:3000/public/${currentUserInfo.avatar}`}
+                        src={`${baseUrl}/public/${currentUserInfo.avatar}`}
                         sx={{
                           width: 40,
                           height: 40,
@@ -248,7 +249,7 @@ const Home = () => {
                   <div className="flex my-auto  flex-row items-center">
                     <Avatar
                       alt={currentUserInfo.username}
-                      src={`http://localhost:3000/public/${currentUserInfo.avatar}`}
+                      src={`${baseUrl}/public/${currentUserInfo.avatar}`}
                       sx={{
                         width: 40,
                         height: 40,
@@ -280,7 +281,7 @@ const Home = () => {
                   <Card
                     Name={product.product_Name}
                     imageUrl={[
-                      `http://localhost:3000/public/${product.product_Images[0]}`,
+                      `${baseUrl}/public/${product.product_Images[0]}`,
                     ]}
                     price={product.product_Price}
                     productId={product._id}

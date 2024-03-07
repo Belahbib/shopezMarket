@@ -19,9 +19,9 @@ const passport = require("passport");
 router.post("/register", registerUser);
 router.post("/login", loginUser);
 router.get("/logout", logoutUser);
-router.get("/userbytoken", authenticateToken , TokenInfo);
-router.get("/user/:id", authenticateToken, CurrentUser);
-router.put("/user/update/:id",authenticateToken, upload.single("avatar"), UpdateUser);
+router.get("/userbytoken" , TokenInfo);
+router.get("/user/:id",  CurrentUser);
+router.put("/user/update/:id", upload.single("avatar"), UpdateUser);
 router.get("/users/:userId/verify/:token", verify);
 router.put("/user/update/password/:id", UpdatePassword);
 router.get(

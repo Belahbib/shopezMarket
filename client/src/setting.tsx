@@ -39,7 +39,7 @@ const Setting = () => {
 
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/user/update/${TokenInfo.userId}`,
+        `https://shopezmarket-b5x6.onrender.com/api/user/update/${TokenInfo.userId}`,
         formData,
         { withCredentials: true }
       );
@@ -69,7 +69,7 @@ const Setting = () => {
   
     try {
       const res = await axios.put(
-        `http://localhost:3000/api/user/update/password/${TokenInfo.userId}`,
+        `https://shopezmarket-b5x6.onrender.com/api/user/update/password/${TokenInfo.userId}`,
         data, // Send JSON data directly
         {
           withCredentials: true,

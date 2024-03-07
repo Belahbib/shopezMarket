@@ -8,7 +8,7 @@ import Product from "./productDetails";
 import { UserProvider } from "./userContext";
 import Profile from "./profile";
 import Setting from "./setting";
-import Cookies from "js-cookie";
+// import Cookies from "js-cookie";
 import Mylistings from "./mylisting";
 import UpdateProduct from "./updatePruduct";
 import MyCart from "./mycart";
@@ -21,7 +21,7 @@ interface TokenProps {
 }
 
 function CheckToken({ children }: TokenProps) {
-  const token = Cookies.get("token");
+  const token = localStorage.getItem('token');
   const isAuthenticated = !!token;
 
   if (!isAuthenticated) {

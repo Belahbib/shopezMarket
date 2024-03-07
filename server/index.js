@@ -12,7 +12,7 @@ require("dotenv").config();
 
 app.use(express.urlencoded({ extended: true }));
 const corsOptions = {
-  origin: "http://localhost:5173",
+  origin: "https://shopez-market-xi.vercel.app",
   methods: ["POST", "GET", "DELETE", "PUT"],
   credentials: true,
 };

@@ -28,7 +28,11 @@ const MyCart = () => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(
+<<<<<<< HEAD
           `${baseUrl}/api/mycart/${TokenInfo.userId}`,
+=======
+          `https://shopezmarket-b5x6.onrender.com/api/mycart/${TokenInfo.userId}`,
+>>>>>>> 9e2608e38fd6a40e1486b89f24a047acc42ac70a
           {
             withCredentials: true,
           }
@@ -114,7 +118,11 @@ const MyCart = () => {
                   <div className="flex flex-row items-center">
                     <Avatar
                       alt={currentUserInfo.username}
+<<<<<<< HEAD
                       src={`${baseUrl}/public/${currentUserInfo.avatar}`}
+=======
+                      src={`https://shopezmarket-b5x6.onrender.com/public/${currentUserInfo.avatar}`}
+>>>>>>> 9e2608e38fd6a40e1486b89f24a047acc42ac70a
                       sx={{
                         width: 40,
                         height: 40,
@@ -157,7 +165,11 @@ const MyCart = () => {
                     <Card
                       Name={product.product_Name}
                       imageUrl={[
+<<<<<<< HEAD
                         `${baseUrl}/public/${product.product_Images[0]}`,
+=======
+                        `https://shopezmarket-b5x6.onrender.com/public/${product.product_Images[0]}`,
+>>>>>>> 9e2608e38fd6a40e1486b89f24a047acc42ac70a
                       ]}
                       price={product.product_Price}
                       productId={product._id}

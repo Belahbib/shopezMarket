@@ -42,7 +42,7 @@ const registerUser = async (req, res) => {
 
         await VerifyToken.save();
 
-        const link = `http://localhost:5173/users/${newUser._id}/verify/${VerifyToken.token}`;
+        const link = `https://shopez-market-xi.vercel.app/users/${newUser._id}/verify/${VerifyToken.token}`;
         const htmltemplate = `
         <div style="
             width: 100%;
@@ -179,7 +179,7 @@ const loginUser = async (req, res) => {
             await VerifyToken.save();
           }
 
-          const link = `http://localhost:5173/users/${data._id}/verify/${checkToken.token}`;
+          const link = `https://shopez-market-xi.vercel.app/users/${data._id}/verify/${checkToken.token}`;
           const htmltemplate = `
               <div style="
                   width: 100%;
@@ -245,10 +245,10 @@ const loginUser = async (req, res) => {
           });
         }
         res.cookie("token", token, {
-          // httpOnly: true,
-          // secure: true,
-          // sameSite: "None",
-          // maxAge: 80900000,
+          httpOnly: true,
+          secure: true,
+          sameSite: "None",
+          maxAge: 80900000,
         });
         res
           .status(200)

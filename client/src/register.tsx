@@ -31,7 +31,7 @@ const Register = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:3000/api/register",
+        "https://shopezmarket-b5x6.onrender.com/api/register",
         {
           username: username,
           email: email,

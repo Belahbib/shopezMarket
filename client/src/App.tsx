@@ -21,7 +21,7 @@ interface TokenProps {
 }
 
 function CheckToken({ children }: TokenProps) {
-  const token = Cookies.get("token");
+  const token = localStorage.getItem('token');
   const isAuthenticated = !!token;
 
   if (!isAuthenticated) {

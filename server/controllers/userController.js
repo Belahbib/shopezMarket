@@ -482,5 +482,5 @@ module.exports = {
   verify,
   // AuthGoogle,
   // GoogleCallback,
-  // UpdatePassword,
+  UpdatePassword,
 };

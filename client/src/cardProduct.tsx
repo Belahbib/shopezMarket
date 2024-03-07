@@ -20,11 +20,12 @@ const Card: React.FC<CardProps> = ({
   isIncart,
 }) => {
   const [Incart, setIncart] = useState(isIncart);
+  const baseUrl = import.meta.env.VITE_BASE_URL;
 
   const toggleLike = async () => {
     try {
       const res = await axios.post(
-        `https://shopezmarket-b5x6.onrender.com/api/product/${productId}/cart`,
+        `${baseUrl}/api/product/${productId}/cart`,
         {},
         { withCredentials: true }
       );

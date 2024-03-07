@@ -28,7 +28,7 @@ const HomeSidebar = ({ onResetFilter }: Prop) => {
     e.preventDefault();
 
     try {
-      const res = await axios.get("http://localhost:3000/api/logout", {
+      const res = await axios.get("https://shopezmarket-b5x6.onrender.com/api/logout", {
         withCredentials: true,
       });
 

@@ -155,7 +155,7 @@ const Product = () => {
               <div className="sticky top-0 overflow-hidden ">
                 <div className="relative mb-6 lg:mb-10 lg:h-96">
                   <img
-                    className="object-contain w-full lg:h-full"
+                    className="object-contain w-full rounded-xl lg:h-full"
                     src={`${baseUrl}/public/${mainImage}`}
                     alt="Product"
                   />

@@ -303,7 +303,7 @@ const Product = () => {
                   <div className="flex">
                     <Avatar
                       alt={product?.creator.username}
-                      src={`http://localhost:3000/public/${product?.creator.avatar}`}
+                      src={`https://shopezmarket-b5x6.onrender.com/public/${product?.creator.avatar}`}
                       sx={{
                         width: 65,
                         height: 65,

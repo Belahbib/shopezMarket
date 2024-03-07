@@ -26,7 +26,7 @@ const MyCart = () => {
     const fetchProducts = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:3000/api/mycart/${TokenInfo.userId}`,
+          `https://shopezmarket-b5x6.onrender.com/api/mycart/${TokenInfo.userId}`,
           {
             withCredentials: true,
           }
@@ -113,7 +113,7 @@ const MyCart = () => {
                   <div className="flex flex-row items-center">
                     <Avatar
                       alt={currentUserInfo.username}
-                      src={`http://localhost:3000/public/${currentUserInfo.avatar}`}
+                      src={`https://shopezmarket-b5x6.onrender.com/public/${currentUserInfo.avatar}`}
                       sx={{
                         width: 40,
                         height: 40,
@@ -156,7 +156,7 @@ const MyCart = () => {
                     <Card
                       Name={product.product_Name}
                       imageUrl={[
-                        `http://localhost:3000/public/${product.product_Images[0]}`,
+                        `https://shopezmarket-b5x6.onrender.com/public/${product.product_Images[0]}`,
                       ]}
                       price={product.product_Price}
                       productId={product._id}
